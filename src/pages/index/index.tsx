@@ -2,12 +2,12 @@ import { View, Text } from "@tarojs/components";
 import Taro from "@tarojs/taro";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from '../../store/CompareListSlice/index'
-import store, { RootState } from "../../store/index";
+import { RootState } from "../../store/index";
 import "./index.scss";
 
 export default function IndexPage() {
   const dispatch = useDispatch()
-  const compareList = useSelector((store: RootState) => store.compareList)
+  const compareList = useSelector((state: RootState) => state.compareList)
   return (
     <View className='index'>
       <Text>Hello world!</Text>
@@ -20,9 +20,12 @@ export default function IndexPage() {
       >
         nav to sub pages detail
       </View>
-      <View>{compareList.value}</View>
+      <View>{compareList.value.length}</View>
       <View onClick={() => {
-        dispatch(increment(1))
+        dispatch(increment({
+          udg_id: 1,
+          udg_name: '222'
+        }))
       }}
       >+1</View>
     </View>
