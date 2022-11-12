@@ -20,12 +20,9 @@ export default function IndexPage() {
       >
         nav to sub pages detail
       </View>
-      <View>{compareList.value.length}</View>
+      <View>{compareList.value}</View>
       <View onClick={() => {
-        dispatch(increment({
-          udg_id: 1,
-          udg_name: '222'
-        }))
+        dispatch(increment(1))
       }}
       >+1</View>
     </View>
